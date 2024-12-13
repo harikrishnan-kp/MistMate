@@ -1,0 +1,2 @@
+# B-L072Z-LRWAN1 LoRa®/Sigfox™ Discovery kit
+This Discovery kit features the all-in-one [CMWX1ZZABZ-091](https://www.murata.com/en-sg/products/connectivitymodule/lpwa/overview/lineup/type-abz-091) open module by Murata. The module is powered by an [STM32L072CZ](https://www.st.com/en/microcontrollers-microprocessors/stm32l072cz.html) microcontroller and SX1276 transceiver. More details of can be found [here](https://www.st.com/en/evaluation-tools/b-l072z-lrwan1.html)
