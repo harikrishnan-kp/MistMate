@@ -10,3 +10,5 @@
     * it seems like present in LoRaWAN/App/lora_app.c
 * where to add credentials
     * seems like LoRaWAN/App/se-identity.h
+* mbedTLS in the I-CUBE-LRWAN library is a lightweight, portable cryptographic library provided by Arm, integrated into the stack to handle security features required by the LoRaWAN protocol and related applications. It provides a collection of cryptographic primitives and protocols essential for secure communication in IoT systems.
+* BSP (Board Support Package) is a layer of software designed to abstract the hardware-specific details of the STM32 microcontroller and its peripherals. The BSP ensures that the same LoRaWAN stack and application code can run on different STM32 boards without significant modification.(seems like a layer sitting above HAL and below middleware)
