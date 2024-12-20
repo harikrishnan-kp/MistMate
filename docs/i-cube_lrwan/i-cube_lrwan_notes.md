@@ -9,6 +9,9 @@
     * reference project/.../LoRaWAN_End_Node/LoRaWAN/App/lora_app.h
 * details of regional parameters and frequency plans
     * Middlewares/Third_Party/LoRaWAN/Mac     
+* drivers,middlewares,utilities folder contain support for many hardwares it is a common resource application layer
+* in every projects applictaion layer is the only thing which is changing. 
+* stmcubeide does not copy common utilities files to apllication layer in a projject.instead it resolve by linking the files by adding file paths to makefile.(changing make file is automatically done by stmcubeIDE)
 
 ## Example projects
 * The LoRaWAN_End_Node project is a reference implementation in the I-CUBE-LRWAN library which is a fully functional implementation of a LoRaWAN end device that interacts with a LoRaWAN network server using the LoRaWAN protocol stack.
