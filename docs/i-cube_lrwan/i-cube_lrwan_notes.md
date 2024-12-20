@@ -2,9 +2,13 @@
 * icube-lrwan lorawan library supports different IDEs and toolchains using for embedded systems development. This library contains preconfigured project files for multiple toolchains like EWARM (IAR Embedded Workbench for ARM), MDK-ARM (Keil Microcontroller Development Kit for ARM) and STM32CubeIDE.
 * find where is data sending file and portion of code in icube-lrwan lorawan library
     * it seems like present in LoRaWAN/App/lora_app.c
-* where to add credentials
-    * seems like LoRaWAN/App/se-identity.h
 * mbedTLS in the I-CUBE-LRWAN library is a lightweight, portable cryptographic library provided by Arm, integrated into the stack to handle security features required by the LoRaWAN protocol and related applications. It provides a collection of cryptographic primitives and protocols essential for secure communication in IoT systems.
+* to change APB/OTA edit keys etc.
+    * reference project/.../LoRaWAN_End_Node/LoRaWAN/App/se-identity.h
+* to change frequency plan: 
+    * reference project/.../LoRaWAN_End_Node/LoRaWAN/App/lora_app.h
+* details of regional parameters and frequency plans
+    * Middlewares/Third_Party/LoRaWAN/Mac     
 
 ## Example projects
 * The LoRaWAN_End_Node project is a reference implementation in the I-CUBE-LRWAN library which is a fully functional implementation of a LoRaWAN end device that interacts with a LoRaWAN network server using the LoRaWAN protocol stack.
