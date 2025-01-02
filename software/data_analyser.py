@@ -2,6 +2,8 @@ import yaml
 from os import path
 import base64
 import grpc
+from datetime import datetime,timedelta
+import time
 from chirpstack_api import api
 import influxdb_client
 from influxdb_client.client.write_api import SYNCHRONOUS
@@ -33,7 +35,7 @@ def fetch_data():
     # Query script
     query_api = client.query_api()
     query = f'''from(bucket: "{bucket}")\
-    |> range(start: -16m)\
+    |> range(start: -3m)\
     |> filter(fn:(r) => r._field == "{field}")'''
     result = query_api.query(org=org, query=query)
     results = []
@@ -41,6 +43,7 @@ def fetch_data():
         for record in table.records:
             results.append((record.get_field(), record.get_value()))
     print(results)
+    return results[0][1]
 
 def send_downlink(msg: str):
     """
@@ -74,10 +77,19 @@ def send_downlink(msg: str):
     print(resp.id)
 
 def main():
-    pass   
-    #fetch_data()
-    send_downlink("CQ==")
+    dt_start = datetime.now()
+    critical_temp = 30.0
+    min_misting_interval = 1 # in hour
+    last_misting_time = dt_start
 
+    while True:
+        data = fetch_data()
+        dt_now = datetime.now()
+        if data > critical_temp and dt_now - timedelta(hours=1) >= last_misting_time:
+            pass
+            #send_downlink("CQ==")
+            last_misting_time = dt_now
+        time.sleep(9000)
 
 if __name__ == "__main__":
     # loading config files
@@ -87,9 +99,8 @@ if __name__ == "__main__":
 
 # Note:
 # is there any other way to load keys safely,try .env file
-# what difference can we expect in memory consuption and speed of execution, if we load yaml file as global variable and load it as local in every function  
-# do we need error handling for every function
-# include a argument "data to be send" in downlink function
+# what difference can we expect in memory consuption and speed of execution, in loading yaml file as global variable and loading it as local in every function  
+# do we need error handling for every function: not necessary
 # once the springler operation is completed it should not turn ON for 1 hours period
 # springler will works only for 3 min,this section is handled by actuator(coded in it) 
 # send downlink when temperature is below 30c
