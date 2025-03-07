@@ -1,0 +1,13 @@
+# new ideas
+- add repository structure in first readme
+- explore possibility of new structuring
+  - create lora library only for stm32lrwan1 
+  - as we are using the same lora lib for sending side and recieving side
+  - create APIs for sending and calling in library
+  - new structure will be
+  --lib
+    --all lib files
+  --src
+    --sensor
+    --receiver
+- keep all docs on github.io  
